@@ -1,22 +1,24 @@
 <main>
-    <div class="container-fluid">
+    <div class="container-fluid px-4">
         <h1 class="mt-4"></h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="<?php echo site_url('user') ?>">User</a></li>
-            <li class="breadcrumb-item active"><?php echo $title ?></li>
+            <li class="breadcrumb-item active"><?php echo $title; ?></li>
         </ol>
         <div class="card mb-4">
             <div class="card-header">
-                <a href="<?php echo site_url('user/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+                <a href="<?php echo site_url('user/add'); ?>"><i class="fas fa-plus"></i> Add New</a>
             </div>
+
             <?php if ($this->session->flashdata('success')): ?>
-                <div class="alert alert-succes" role="alert">
-                    <?php echo $this->session->flashdata('succes'); ?>
+                <div class="alert alert-success" role="alert">
+                    <?php echo $this->session->flashdata('success'); ?>
                 </div>
             <?php endif; ?>
+
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover" id="tablekelas" width=100%
+                    <table class="table table-striped table-bordered table-hover" id="tabelkelas" width="100%"
                         cellspacing="0">
                         <thead>
                             <tr>
@@ -33,27 +35,31 @@
                             $no = 1;
                             foreach ($user as $user) {
                                 echo "<tr>
-                                    <td>$no</td>
-                                    <td>$user->username</td>
-                                    <td>$user->email</td>
-                                    <td>$user->phone</td>
-
-                                    <td>$user->role</td>
-                                    <td>
-                                    <div>
-                                    <a href=" . base_url('user/getedit/' . $user->id) . " class='btn btn-sm btn-info'><i class='fas fa-edit'></i> Edit</a>
-                                    <a href=" . base_url('user/delete/' . $user->id) . " class='btn btn-sm btn-danger'
-										onlick='return confirm(\"Ingin menghapus data user ini?\");'><i class='fas fa-trash'></i>Hapus</a>
-                                    </div>
-                                    </td>
-                            </tr>";
+                  <td>{$no}</td>
+                  <td>{$user->username}</td>
+                  <td>{$user->email}</td>
+                  <td>{$user->phone}</td>
+                  <td>{$user->role}</td>
+                  <td>
+                    <div>
+                      <a href='" . base_url('user/getedit/' . $user->id) . "' class='btn btn-sm btn-info'>
+                        <i class='fas fa-edit'></i> Edit
+                      </a>
+                      <a href='" . base_url('user/delete/' . $user->id) . "' class='btn btn-sm btn-danger' 
+                        onclick='return confirm(\"Ingin mengapus data user ini?\");'>
+                        <i class='fas fa-trash'></i> Hapus
+                      </a>
+                    </div>
+                  </td>
+                </tr>";
                                 $no++;
-                            } ?>
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        <div style="height: 100vh"></div>
+        <div style="height: 100vh;"></div>
     </div>
 </main>
