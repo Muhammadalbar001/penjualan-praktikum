@@ -30,7 +30,7 @@ class User extends CI_Controller
     {
         $this->User_model->save();
         if ($this->db->affected_rows() > 0) {
-            $this->session->set_flashdata("Success", "Data user Berhasil DiSimpang");
+            $this->session->set_flashdata("Success", "Data user Berhasil DiSimpan");
         }
         redirect('user');
     }
