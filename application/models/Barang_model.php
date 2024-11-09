@@ -21,12 +21,26 @@ class Barang_model extends CI_Model
             'kategori_id' => htmlspecialchars($this->input->post('kategori'),true),
             'satuan_id' => htmlspecialchars($this->input->post('satuan'),true),
             'supplier_id' => htmlspecialchars($this->input->post('supplier'),true),
-            'user_id' => $this->session->userdata('user_id'),
+            'user_id' => $this->session->userdata('id'),
         );
         return $this->db->insert($this->_table,$data);
     }
     public function getById($id)
     {
         return $this->db->get_where($this->_table,["id" => $id])->row();
+    }
+    public function editData()
+    {
+        $id = $this->input->post('id');
+        $data = array('name' => htmlspecialchars($this->input->post('name'), true));
+        return $this->db->set($data)->where($this->primary, $id)->update($this->_table);
+    }
+
+    public function delete($id)
+    {
+        $this->db->where($this->primary, $id)->delete($this->_table);
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('success', 'Data berhasil dihapus');
+        }
     }
 }

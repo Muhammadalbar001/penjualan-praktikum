@@ -35,7 +35,7 @@
                     </div>
                     <div class="mb-3">
                         <label>Satuan <code>*</code></label>
-                        <select name="form-control" class="form-control" required>
+                        <select name="satuan" class="form-control" required>
                         <option value="">- Pilih -</option>
                         <?php foreach ($satuan as $k): ?>
                         <option value="<?php echo $k['id'] ?>"><?php echo $k['name'] ?></option>
@@ -43,8 +43,8 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="supplier">Supplier <code>*</code></label>
-                        <select name="form-control" class="form-control" required>
+                        <label>Supplier <code>*</code></label>
+                        <select name="supplier" class="form-control" required>
                         <option value="">- Pilih -</option>
                         <?php foreach ($supplier as $k): ?>
                         <option value="<?php echo $k['id'] ?>"><?php echo $k['name'] ?></option>

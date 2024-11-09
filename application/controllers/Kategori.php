@@ -50,9 +50,9 @@ class Kategori extends CI_Controller {
         }
         redirect('kategori');
     }
-    function delete($id)
+     public function delete($id)
     {
-        $this->Kategori_model->delete($id);
+        $this->Kategori_model-->delete($id);
         redirect('kategori');
     }
 }
